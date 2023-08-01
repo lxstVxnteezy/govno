@@ -13,7 +13,7 @@ namespace Test1
         public Guid ChemicalComposition_Id { get; set; }
 
         public string ChemicalComposition_Name { get; set; }
-        public Guid AluminiumAlloyId { get; set;}
-        public AluminiumAlloy Alloy { get; set; }
+        
+        public List<АluminumAlloy> AluminiumAlloys { get; set; } = new();
     }
 }

@@ -9,10 +9,8 @@ namespace Test1
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<AluminiumAlloy>AluminiumAlloys { get; set; }
-        public DbSet<ChemicalComposition>Compositions { get;set; }
-        public DbSet<MaterialExecution> MaterialExecutions { get;set; }
-        
+        public DbSet<АluminumAlloy> АluminumAlloys { get; set; }
+        public DbSet<DictAlloy> Dictionaries { get; set; }
         public ApplicationContext()
         {
             Database.EnsureDeleted();
@@ -21,8 +19,7 @@ namespace Test1
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=helloappdb;Trusted_Connection=false;");
-
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=helloappdb1;Trusted_Connection=false;");
 
         }
 

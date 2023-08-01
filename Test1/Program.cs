@@ -6,26 +6,21 @@ using (ApplicationContext db = new ApplicationContext())
     db.Database.EnsureDeleted();
     db.Database.EnsureCreated();
 
-    ChemicalComposition composition1 = new ChemicalComposition { ChemicalComposition_Name = "al16,mg0,1,si01", ChemicalComposition_Id = Guid.NewGuid() };
-    db.Compositions.Add(composition1);
-
-    AluminiumAlloy alloy1 = new AluminiumAlloy { Name = "6565", ChemicalComposition = composition1, Id = Guid.NewGuid() };
-    db.AluminiumAlloys.Add(alloy1);
-
-    MaterialExecution execution1 = new MaterialExecution{MaterialExecutionId = Guid.NewGuid(), Type = "rod" };
-    MaterialExecution execution2 = new MaterialExecution { MaterialExecutionId = Guid.NewGuid(), Type = "sheet metal" };
-    db.MaterialExecutions.AddRange(execution1, execution2);
-   
-    alloy1.MaterialExecutions.Add(execution1);
-    alloy1.MaterialExecutions.Add(execution2);
+    АluminumAlloy alloy1 = new АluminumAlloy { Id = Guid.NewGuid(),Name = "6073"};
+    АluminumAlloy alloy2 = new АluminumAlloy { Id = Guid.NewGuid(), Name = "6077" };
+    db.АluminumAlloys.AddRange(new List<АluminumAlloy> { alloy1, alloy2 });
 
     db.SaveChanges();
 
+
+    DictAlloy dict1 = new DictAlloy { AluminumId = alloy1.Id, Type = "bar" };
+    DictAlloy dict2 = new DictAlloy { AluminumId = alloy2.Id, Type = "SheetMetal" };
+    db.Dictionaries.AddRange(new List<DictAlloy>{ dict1 , dict2});
+    
+    db.SaveChanges();
+
     Console.WriteLine("Сохранен");
-    foreach (var alloy in db.AluminiumAlloys.ToList())
-    {
-        Console.WriteLine($"{alloy.Id} {alloy.ChemicalComposition} {alloy.Name}");
-    }
+    
 
     Console.ReadLine();
 }
