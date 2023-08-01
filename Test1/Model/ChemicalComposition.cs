@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test1
+namespace Test1.Model
 {
     public class ChemicalComposition
     {
@@ -13,7 +13,7 @@ namespace Test1
         public Guid ChemicalComposition_Id { get; set; }
 
         public string ChemicalComposition_Name { get; set; }
-        
+
         public List<АluminumAlloy> AluminiumAlloys { get; set; } = new();
     }
 }

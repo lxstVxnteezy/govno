@@ -61,3 +61,5 @@ C:\Users\Ivan\Documents\GitHub\govno\Test1\bin\Debug\net6.0\Microsoft.Identity.C
 C:\Users\Ivan\Documents\GitHub\govno\Test1\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\Ivan\Documents\GitHub\govno\Test1\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
 C:\Users\Ivan\Documents\GitHub\govno\Test1\bin\Debug\net6.0\System.Memory.Data.dll
+C:\Users\Ivan\Documents\GitHub\govno\Test1\bin\Debug\net6.0\Npgsql.dll
+C:\Users\Ivan\Documents\GitHub\govno\Test1\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

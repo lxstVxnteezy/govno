@@ -6,15 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test1
+namespace Test1.Model
 {
     public class DictAlloy
     {
-        [Key] [ForeignKey("АluminumAlloy")]
+        [Key]
+        [ForeignKey("АluminumAlloy")]
+
         public Guid AluminumId { get; set; }
         public string Type { get; set; }
-
-        public АluminumAlloy АluminumAlloy { get; set; }
+        public АluminumAlloy? АluminumAlloy { get; set; }
 
     }
 }

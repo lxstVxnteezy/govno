@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Test1.Model;
 
-namespace Test1
+namespace Test1.DBContext
 {
     public class ApplicationContext : DbContext
     {
@@ -19,9 +20,16 @@ namespace Test1
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=helloappdb1;Trusted_Connection=false;");
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=usersdb;Username=postgres;Password=postgres");
 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Один ко одному
+            modelBuilder.Entity<АluminumAlloy>()
+                .HasOne(g => g.Dict)
+                .WithOne(a => a.АluminumAlloy);
+        }
     }
 }

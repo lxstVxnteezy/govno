@@ -5,16 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test1
+namespace Test1.Model
 {
     public class АluminumAlloy
     {
-
         public Guid Id { get; set; }
         public string Name { get; set; }
-
         public DictAlloy Dict { get; set; }
-       
+
 
     }
 }
