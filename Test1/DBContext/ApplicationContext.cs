@@ -11,7 +11,7 @@ namespace Test1.DBContext
     public class ApplicationContext : DbContext
     {
         public DbSet<АluminumAlloy> АluminumAlloys { get; set; }
-        public DbSet<DictAlloy> Dictionaries { get; set; }
+        public DbSet<DictionaryType> DictionariesTypes { get; set; }
         public ApplicationContext()
         {
             Database.EnsureDeleted();
@@ -24,12 +24,5 @@ namespace Test1.DBContext
 
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            //Один ко одному
-            modelBuilder.Entity<АluminumAlloy>()
-                .HasOne(g => g.Dict)
-                .WithOne(a => a.АluminumAlloy);
-        }
     }
 }

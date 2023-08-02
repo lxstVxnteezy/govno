@@ -9,9 +9,10 @@ namespace Test1.Model
 {
     public class АluminumAlloy
     {
+        public Guid DictionaryTypeId { get; set; }
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public DictAlloy Dict { get; set; }
+        public DictionaryType DictType { get; set; }
 
 
     }

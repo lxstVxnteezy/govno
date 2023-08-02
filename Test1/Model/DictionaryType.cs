@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Test1.Model
 {
-    public class DictAlloy
+    public class DictionaryType
     {
-        [Key]
-        [ForeignKey("АluminumAlloy")]
 
-        public Guid AluminumId { get; set; }
+        public Guid Id { get; set; }
         public string Type { get; set; }
-        public АluminumAlloy? АluminumAlloy { get; set; }
+        public string? Diameter { get; set; }
+        public string? Thickness { get; set; }
 
+        public АluminumAlloy АluminumAlloy { get; set; }
     }
 }

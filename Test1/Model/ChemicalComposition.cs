@@ -9,7 +9,7 @@ namespace Test1.Model
 {
     public class ChemicalComposition
     {
-        [Key]
+        
         public Guid ChemicalComposition_Id { get; set; }
 
         public string ChemicalComposition_Name { get; set; }

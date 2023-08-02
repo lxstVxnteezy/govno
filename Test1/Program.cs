@@ -4,24 +4,24 @@ using Test1.Model;
 
 using (ApplicationContext db = new ApplicationContext())
 {
-    db.Database.EnsureDeleted();
-    db.Database.EnsureCreated();
+    DictionaryType dict1 = new DictionaryType { Type = "SheetMetal",Id = Guid.NewGuid(),Thickness = "10mm"};
 
-    АluminumAlloy alloy1 = new АluminumAlloy { Id = Guid.NewGuid(),Name = "6073"};
-    АluminumAlloy alloy2 = new АluminumAlloy { Id = Guid.NewGuid(), Name = "6077" };
-    db.АluminumAlloys.AddRange(new List<АluminumAlloy> { alloy1, alloy2 });
+    АluminumAlloy alloy1 = new АluminumAlloy { Name = "6061",Id = Guid.NewGuid(), DictionaryTypeId = dict1.Id};
+
+    DictionaryType dict2 = new DictionaryType { Type = "Bar", Id = Guid.NewGuid(),Diameter = "10mm"};
+
+    АluminumAlloy alloy2 = new АluminumAlloy { Name = "6061", Id = Guid.NewGuid(), DictionaryTypeId = dict2.Id };
+
+
+    db.АluminumAlloys.Add(alloy1);
+    db.DictionariesTypes.Add(dict1);
+
+    db.АluminumAlloys.Add(alloy2);
+    db.DictionariesTypes.Add(dict2);
+    
+
     db.SaveChanges();
+    
+    Console.WriteLine("Все ок");
 
-
-    DictAlloy dict1 = new DictAlloy { AluminumId = alloy1.Id, Type = "bar" };
-    DictAlloy dict2 = new DictAlloy { AluminumId = alloy2.Id, Type = "SheetMetal" };
-    db.Dictionaries.AddRange(new List<DictAlloy>{ dict1 , dict2});
-    db.SaveChanges();
-
-    Console.WriteLine("Сохранен");
-    foreach (var alloy in db.АluminumAlloys.ToList())
-    {
-        Console.WriteLine($"Id:{alloy.Id} Name:{alloy.Name} Type: {alloy.Dict.Type}");
-    }
-    Console.ReadLine();
 }
