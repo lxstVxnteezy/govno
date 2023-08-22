@@ -11,9 +11,10 @@ namespace Test1.Model
     {
         public Guid DictionaryTypeId { get; set; }
         public Guid Id { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public DictionaryType DictType { get; set; }
-
+        public List<ChemicalElement> ChemicalElements { get; set; } = new();
+        public List<ChemicalComposition> ChemicalCompositions { get; set; } = new();
 
     }
 }
